@@ -5,6 +5,7 @@ import type { PropsWithChildren } from "react";
 import { Footer } from "@/components/main/footer";
 import { Navbar } from "@/components/main/navbar";
 import { StarsCanvas } from "@/components/main/star-background";
+import CanvasErrorBoundary from "@/components/CanvasErrorBoundary";
 import { siteConfig } from "@/config";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +28,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
           inter.className
         )}
       >
-        <StarsCanvas />
+        <CanvasErrorBoundary>
+          <StarsCanvas />
+        </CanvasErrorBoundary>
         <Navbar />
         {children}
         <Footer />
